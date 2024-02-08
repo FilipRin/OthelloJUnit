@@ -79,7 +79,7 @@ public class OthelloWidget extends JPanel implements ActionListener, SpotListene
 		/* Reset game. */
 		resetGame();
 		
-		//OVDE JE BILO IZMENA, NEPOTREBNO DVAPUT KLIKNUTO NA POCETNA POLJA, VEC SE DESAVA UNUTAR resetGame()
+		//Unnecessary, this already happened at a start of construction and in resetGame()
 		//spotClicked(initSpot3);
 
 		//spotClicked(initSpot4);
@@ -88,7 +88,10 @@ public class OthelloWidget extends JPanel implements ActionListener, SpotListene
 
 	}
 
-
+	public JSpotBoard getBoard() {
+		return this._board;
+	}
+	
 	/*
 	 * resetGame
 	 * 
@@ -96,10 +99,6 @@ public class OthelloWidget extends JPanel implements ActionListener, SpotListene
 	 * spot, resetting game status fields, and displaying start message.
 	 * 
 	 */
-	public JSpotBoard getBoard() {
-		return this._board;
-	}
-
 	private void resetGame() {
 		/*
 		 * Clear all spots on board. Uses the fact that SpotBoard implements
@@ -375,7 +374,7 @@ public class OthelloWidget extends JPanel implements ActionListener, SpotListene
 	}
 
 	
-	//CHECKDRAW NIJE NI KORISTEN, PRVO GA TREBA ISPRAVITI PA GA TREBA POZIVATI U PROVERI ZA KRAJ IGRE
+	//CheckDraw wasnt used, it should be called at the end of the game to see if game was drawn
 	public boolean checkDraw() {
 		int countBlacks = 0;
 		int countWhites = 0;
